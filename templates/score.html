@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  * {
+    box-sizing: border-box;
+
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial;
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .column img {
+    margin-top: 12px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  </style>
+</head>
+<body vspace="20">
+<div class="row">
+  <center>
+    <h2 style="margin:30px 0;"> Distribution of Monetary Value for Frequency & Recency:</h2>
+  	<img src="{{url_for('static', filename='b.png')}}" alt="R & F distribution" vspace="30">
+ </center>
+
+<div class="row">
+  <div class="column">
+    <center>
+      <p> <h4>RFM Score Value against Monetary Value, Frequency & Recency:<h4> </p>
+    <img src="{{url_for('static', filename='z.png')}}" alt="Snow" style="width:100% height:200px">
+  </center>
+  </div>
+  <div class="column">
+    <center>
+      <p> <h4>Distribution of Recency & Frequency:<h4> </p>
+    <img src="{{url_for('static', filename='a.png')}}" alt="Forest" style="width:100% height:200px">
+  </center>
+  </div>
+</div>
+
+</body>
+</html>
