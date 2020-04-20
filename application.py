@@ -1,7 +1,7 @@
 from flask import Flask, send_file, render_template, request,make_response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-app = Flask(__name__)
+application = Flask(__name__)
 import pandas as pd
 import os
 import csv
@@ -21,11 +21,11 @@ from rfm_analysis import plot2
 from rfm_analysis import plot_seg
 #from rfm_analysis import catplots
 
-@app.route('/', methods=['GET','POST'])
+@application.route('/', methods=['GET','POST'])
 def index():
     return render_template('index.html')
 
-@app.route('/data', methods=['GET','POST'])
+@application.route('/data', methods=['GET','POST'])
 
 def data():
     if request.method=='POST':
@@ -33,13 +33,13 @@ def data():
         d1=view_segfile(f1)
         return render_template('data.html', data=d1.to_html(header=True, index=True))
 
-@app.route('/download')
+@application.route('/download')
 def download_file():
     v='rfm_report.csv'
     return send_file(v,as_attachment=True)
 
 
-@app.route('/score', methods=['GET','POST'])
+@application.route('/score', methods=['GET','POST'])
 def show_score():
     if request.method=='POST':
         f2=request.form['csvfile']
@@ -49,7 +49,7 @@ def show_score():
         plot2(d2)
         return render_template("score.html")
 
-@app.route('/segments', methods=['GET','POST'])
+@application.route('/segments', methods=['GET','POST'])
 def show_segments():
     if request.method=='POST':
         f3=request.form['csvfile']
@@ -67,4 +67,4 @@ def show_segments():
         return render_template("segments.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run()
