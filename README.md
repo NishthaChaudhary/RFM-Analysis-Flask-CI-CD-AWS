@@ -29,7 +29,7 @@ as a zip folder from GitHub.
 6.	It will have a job: Built that will be triggered when something is pushed to Dev Branch. It will have steps to clone the repository and push it to AWS S3 in form of zip file using the credentials stored as Secret in Github.
 7.	Similarly, another job will be: Deploy that will be triggered after the completion of the first job (Built). It will include steps to configure credentials, create a new environment for the application with the source code on S3 and then deploy the application on dev environment.
 8.	Similarly, create another pipeline for CI/CD Production Environment. In this case, create a prod.yml file in which jobs will be triggered when the code/changes are pushed to the Production environment. 
-9.	For implementation part/ live demo, refer video:https://www.loom.com/share/02d22e77b0b2468699297b686b498ab1
+
 
 
  
